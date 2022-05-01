@@ -1,6 +1,14 @@
 # HW7
 
-age = int(input('Введіть свій рік ->'))
+import random
+def get_number(age):
+    """
+
+    :return:
+    """
+
+    age = input()
+    return
 def digits(age):
     """
     FUNCTION FIND NUMBERS WITH THE SAME NUMERIC
@@ -17,14 +25,13 @@ def compair_except_with_list(age):
     """
     FUNCTION COMPAIR ARG(AGE) WITH EXCEPTION LIST
     Args:
-         x: int
+         age: int
 
     Returns:GIVES BACK AGE , IF IT COINCIDED WITH NUM AT LIST
     """
 
     while (age not in except_list):
-        print("Age = ", age)
-        age = random.randrange(0, 1999)
+        age = random.randrange(0, 130)
 
     return age
 
@@ -43,19 +50,34 @@ def form_of_age(age):
         res = 'рік'
     elif age % 10 == 2 or age % 10 == 3 or age % 10 == 4:
         res = 'роки'
-    elif age % 10 == 5 or age % 10 == 6 or age % 10 == 7 or age % 10 == 8 or age % 10 == 9 or age == exc:
+    elif age % 10 == 5 or age % 10 == 6 or age % 10 == 7 or age % 10 == 8 or age % 10 == 9 or age == exc or age % 10 == 0:
         res = 'років'
-
+    else:
+        print('На жаль , я не можу вам допомгти')
     return res
 
 repdigit = digits(age)
 year = form_of_age(age)
 
-if len(set(repdigit)) != len(repdigit):
-    print(f'О вам {age} {year}! Який цікавий вік')
-else:
-    print(f'Незважаючи на те, що вам {age} {year}, білетів всеодно нема!')
+def age_control(age):
+    """
+    FUNCTION DEFENITION AGE OF PERSON
+    Args:
+        age: int
 
+    Returns:CORRECT ANSWER THAT DEPENDS ON THE AGE
+    """
+    if age < 7:
+        print(f'Тобі ж {age} {year}! Де твої батьки?')
+    elif age < 16:
+        print(f'Тобі лише {age} {year}, а це е фільм для дорослих!')
+    elif age > 65:
+        print(f'Вам {age} {year}? Покажіть пенсійне посвідчення!')
+    elif len(set(repdigit)) != len(repdigit):
+        print(f'О вам {age} {year}! Який цікавий вік')
+    else:
+        print(f'Незважаючи на те, що вам {age} {year}, білетів всеодно нема!')
 
+result = age_control(age)
 
 
